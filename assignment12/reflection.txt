@@ -1,0 +1,16 @@
+
+    Reflect on the differences between static and interactive visualizations.
+
+
+Interactive visualizations make me feel like im a ceo of multi-million dollar company. It makes me think I'm in controll and can access the data however I want. Static visualisations make me feel like I'm a helpless user of social media coming across pngs of data with undisclosed sources with people shouting at each other in the comments section. Overall big wins to interactive visualistions.
+
+
+    Write a short paragraph discussing the advantages of using dashboards for real-time data exploration.
+
+As I said, Dashboards are so expressive when it comes to different data types, and the lessons we can get from them. They allow us to compare, zoom in, and transport the data visualisations and derive more conclusions that we can in static visualisations.
+
+
+    Explain how interactive tools like Plotly and Dash can improve data communication in professional settings.
+
+
+Plotly and Dash can make it so easy to just bring a data page online and browsable for the world to see. They are awesome. They make it more accesible than ever to make data driven websites. No more messing around with nginx, django, ssl certs, dns, etc. is a certain pro.
