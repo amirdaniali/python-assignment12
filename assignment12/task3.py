@@ -4,9 +4,13 @@
 ## Advanced Data Visualtions
 
 
+from datetime import date
 import sqlite3
 import pathlib
 import pandas as pd
+from dash import Dash, dcc, html, Input, Output
+import plotly.express as px
+import plotly.data as pldata
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.animation as animation
@@ -16,26 +20,20 @@ BASEDIR = pathlib.Path(__file__).parent.parent
 print(BASEDIR)
 
 
-def task2(db_path: pathlib.Path | str) -> None:
+def task3(db_path: pathlib.Path | str) -> None:
     """
-    Task 2: A Line Plot with Pandas
+    Task 3: Interactive Visualizations with Plotly
 
-        Create a file called cumulative.py. The boss wants to see how money is rolling in. You use SQL to access ../db/lesson.db again. You create a DataFrame with the order_id and the total_price for each order. This requires joining several tables, GROUP BY, SUM, etc.
-        Add a "cumulative" column to the DataFrame. This is an interesting use of apply():
+        Load the Plotly wind dataset, via the following:
 
-        def cumulative(row):
-           totals_above = df['total_price'][0:row.name+1]
-           return totals_above.sum()
+        import plotly.express as px
+        import plotly.data as pldata
+        df = pldata.wind(return_type='pandas')
 
-        df['cumulative'] = df.apply(cumulative, axis=1)
-
-        Because axis=1, apply() calls the cumulative function once per row. Do you see why this gives cumulative revenue? One can instead use cumsum() for the cumulative sum:
-
-        df['cumulative'] = df['total_price'].cumsum()
-
-        Use Pandas plotting to create a line plot of cumulative revenue vs. order_id.
-        Show the Plot.
-
+        Print the first and last 10 lines of the DataFrame.
+        Clean the data. You need to convert the 'strength' column to a float. Use of str.replace() with regex is one way to do this, followed by type conversion.
+        Create an interactive scatter plot of strength vs. frequency, with colors based on the direction.
+        Save and load the HTML file, as wind.html. Verify that the plot works correctly.
 
     """
     results = None
@@ -141,13 +139,11 @@ def task2(db_path: pathlib.Path | str) -> None:
             interval=20,
             repeat=False,
         )
+        ani.save(BASEDIR / "assignment12/cumulative_plot.gif")
 
-        if not (BASEDIR / "assignment12/cumulative_plot.gif").is_file():
-            print("Animated plot not found in disk. Saving it now. Please be patient.")
-            ani.save(BASEDIR / "assignment12/cumulative_plot.gif")
-
+        plt.tight_layout()
         plt.show()
 
 
 if __name__ == "__main__":
-    task2(BASEDIR / "db/lesson.db")
+    task3(BASEDIR / "db/lesson.db")

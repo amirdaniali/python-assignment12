@@ -3,14 +3,9 @@
 ## Week 12
 ## Advanced Data Visualtions
 
-
-from datetime import date
 import sqlite3
 import pathlib
 import pandas as pd
-from dash import Dash, dcc, html, Input, Output
-import plotly.express as px
-import plotly.data as pldata
 import matplotlib.pyplot as plt
 
 BASEDIR = pathlib.Path(__file__).parent.parent
